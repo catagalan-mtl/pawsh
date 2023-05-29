@@ -1,9 +1,12 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@500&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Fira Sans Extra Condensed', "sans-serif";
+$headers-font: "Lobster Two", "cursive";
+// $sub-headers-font: "Fira Sans Extra Condensed", "sans-serif"
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
