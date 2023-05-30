@@ -1,4 +1,14 @@
 class Outfit < ApplicationRecord
-  belongs_to :user
+  ANIMALS = %w[cat dog lizard squirrel parrot]
+  SIZES = %w[XS S M L XL]
+
+  belongs_to :user, dependent: :destroy
+
+  validates :title, presence: true
+  validates :size, inclusion: { in: SIZES }
+  validates :description, presence: true
+  validates :price_per_day, presence: true
+  validates :animal, inclusion: { in: ANIMALS }
+
   has_many_attached :photos
 end
