@@ -1,8 +1,8 @@
 class Booking < ApplicationRecord
-  belongs_to :user, dependent: destroy
-  belongs_to :outfit, dependent: destroy
+  belongs_to :user
+  belongs_to :outfit
 
-  STATUSES = %w[booked pending cancelled]
+  STATUSES = %w[accepted pending declined]
 
   validates :status, presence: true
   validates :status, inclusion: { in: STATUSES }
