@@ -10,4 +10,5 @@ class Outfit < ApplicationRecord
   validates :price_per_day, presence: true
   validates :animal, inclusion: { in: ANIMALS }
 
+  has_many_attached :photos
 end
