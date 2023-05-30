@@ -17,7 +17,7 @@ puts "All done"
 
 puts "Generating outfits"
 description = "Here is an outfit for your dog to be the cutest"
-christmas = Outfit.new(title: "Christmas outfit for dogs", size: "S", occasion: "Christmas", description: description, animal: "dog", price_per_day: 100)
+christmas = Outfit.new(title: "Christmas outfit for dogs", size: "S", occasion: "Christmas", description: description, animal: "Dog", price_per_day: 100)
 christmas.user = User.last
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472015/dog_christmas.jpg")
 christmas.photos.attach(io: file, filename: "dog_christmas.jpg")
