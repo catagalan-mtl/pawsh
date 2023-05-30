@@ -6,12 +6,10 @@
     <div class="col-md-8">
       <div class="card-body text-end">
         <h5 class="card-title"><%= Outfit.last.title %></h5>
-        <p class="card-text"><small class="text-muted">X km away</small></p>
+        <p class="card-text">$ <%= Outfit.last.price_per_day %>/day</p>
         <p class="card-text">Size: <%= Outfit.last.size %></p>
       </div>
     </div>
   </div>
-  <div class="price">
-    <p class="card-text">$ <%= Outfit.last.price_per_day %>/day</p>
-  </div>
+    <a class="btn btn-flat" href="#" >Book now!</a>
 </div>
