@@ -1,16 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
 
 # Seed Users
+
 puts "Cleaning the users table"
 User.destroy_all
 puts "Generating 3 users"
-User.create!(email: "mary@exemple.com", first_name: "Mary", last_name: "Jane", password: "password", avatar_url: "https://res.cloudinary.com/dbgykplat/image/upload/v1685463153/panda_avatar.png")
-User.create!(email: "john@exemple.com", first_name: "John", last_name: "Smith", password: "password", avatar_url: "https://res.cloudinary.com/dbgykplat/image/upload/v1685463149/fox_avatar.png")
-User.create!(email: "johanna@exemple.com", first_name: "Johanna", last_name: "Lafont", password: "password", avatar_url: "https://res.cloudinary.com/dbgykplat/image/upload/v1685463145/chick_avatar.png")
+User.create(email: "mary@exemple.com", first_name: "Mary", last_name: "Jane", password: "password", avatar_url: "https://res.cloudinary.com/dbgykplat/image/upload/v1685463153/panda_avatar.png")
+User.create(email: "john@exemple.com", first_name: "John", last_name: "Smith", password: "password", avatar_url: "https://res.cloudinary.com/dbgykplat/image/upload/v1685463149/fox_avatar.png")
+User.create(email: "johanna@exemple.com", first_name: "Johanna", last_name: "Lafont", password: "password", avatar_url: "https://res.cloudinary.com/dbgykplat/image/upload/v1685463145/chick_avatar.png")
 puts "All done"
+
+
+# Seed outfits
+
+puts "Cleaning the outfits table"
+Outfit.destroy_all
+puts "Generating outfits"
+description = "Here is an outfit for your dog to be the cutest"
+christmas = Outfit.new(title: "Christmas outfit for dogs", size: "S", occasion: "Christmas", description: description, animal: "dog")
+christmas.user = User.last
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472015/dog_christmas.jpg")
+christmas.photos.attach(io: file, filename: "dog_christmas.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472015/dog_christmas2.jpg")
+christmas.photos.attach(io: file, filename: "dog_christmas2.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472014/dog_christmas3.jpg")
+christmas.photos.attach(io: file, filename: "dog_christmas3.jpg")
+christmas.save!
+
+puts "all done"
