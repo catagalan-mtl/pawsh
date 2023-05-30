@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_182211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "animal"
+    t.float "price_per_day"
     t.index ["user_id"], name: "index_outfits_on_user_id"
   end
 
