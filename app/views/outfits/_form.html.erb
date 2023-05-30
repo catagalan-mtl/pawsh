@@ -1,10 +1,10 @@
 
-<% simple_form_for(outfit) do |f| %>
+<%= simple_form_for(outfit) do |f| %>
   <%= f.input :title %>
-  <%= f.input :animal, collection: { ANIMALS } %>
-  <%= f.input :size, collection: { SIZES } %>
+  <%= f.input :animal, :collection => Outfit::ANIMALS %>
+  <%= f.input :size, :collection => Outfit::SIZES %>
   <%= f.input :description %>
   <%= f.input :occasion %>
   <%= f.input :price_per_day %>
-  <%= f.submit 'Create Outfit', class='btn btn primary' %>
+  <%= f.submit 'Create Outfit', class:'btn btn primary' %>
 <% end %>
