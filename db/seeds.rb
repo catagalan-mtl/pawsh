@@ -1,5 +1,7 @@
 require "open-uri"
 
+puts "Cleaning the bookings table"
+Booking.destroy_all
 puts "Cleaning the outfits table"
 Outfit.destroy_all
 puts "Cleaning the users table"
