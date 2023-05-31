@@ -1,14 +1,19 @@
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <%= cl_image_tag Outfit.last.photos[0].key, height: 100, width: 150, crop: :fill %>
+<div class="card mb-3">
+  <div class="card-content row g-0">
+    <div class="col-6">
+      <%= cl_image_tag Outfit.last.photos[0].key, class: "card-image", crop: :fill %>
     </div>
-    <div class="col-md-8">
+    <div class="col-6">
       <div class="card-body text-end">
-        <h5 class="card-title"><%= Outfit.last.title %></h5>
-        <p class="card-text">$ <%= Outfit.last.price_per_day %>/day</p>
-        <p class="card-text">Size: <%= Outfit.last.size %></p>
+        <h4 class="card-title"><%= Outfit.last.title %></h4>
+        <p class="card-text mb-0">for: <strong><%= Outfit.last.animal %></strong></p>
+        <p class="card-text mb-0">Size: <%= Outfit.last.size %></p>
+        <div class="card-text price mt-3">
+          <p class="card-text mb-0">$ <%= Outfit.last.price_per_day %>/day</p>
+        </div>
+
       </div>
+
     </div>
   </div>
     <a class="btn btn-flat" href="#" >Book now!</a>
