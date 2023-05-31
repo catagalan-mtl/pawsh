@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.outfit_id = params[:outfit_id]
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path
+      redirect_to outfit_path(params[:outfit_id])
     else
       render :new, status: :unprocessable_entity
     end
