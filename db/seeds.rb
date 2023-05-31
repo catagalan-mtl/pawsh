@@ -1,5 +1,7 @@
 require "open-uri"
 
+puts "Cleaning the bookings table"
+Booking.destroy_all
 puts "Cleaning the outfits table"
 Outfit.destroy_all
 puts "Cleaning the users table"
@@ -28,3 +30,17 @@ christmas.photos.attach(io: file, filename: "dog_christmas3.jpg")
 christmas.save!
 
 puts "all done"
+
+# Seed bookings
+puts "Generating bookings"
+
+booking = Booking.new(
+  status: "pending",
+  start_date: "2023-12-23",
+  end_date: "2023-12-23",
+  user_id: User.last.id,
+  outfit_id: Outfit.last.id
+)
+booking.save!
+
+puts "all done!"
