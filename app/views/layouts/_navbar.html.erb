@@ -19,7 +19,7 @@
 
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "List new outfit", "#", class: "nav-link" %>
+            <%= link_to "List new outfit", new_outfit_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "View booking requests", bookings_path, class: "nav-link" %>
