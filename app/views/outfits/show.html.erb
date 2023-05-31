@@ -1,16 +1,15 @@
 <h2><%= @outfit.title %></h2>
-<h4><%= "for" @outfit.animal %></h4>
+<h4>for<%=  @outfit.animal %></h4>
 
 <div>
-  <p>
     <% if @outfit.occasion != nil %>
-      <%= "Special Occasion:" @outfit.occasion %>
+      <p>Special Occasion: <%=@outfit.occasion %></p>
     <% end %>
-    <%= "Size:" @outfit.size  %>
-    <%= "Description:" @outfit.description %>
+    <p>Size: <%= @outfit.size  %></p>
+    <p>Description: </p><%= @outfit.description %>
   </p>
 </div>
 
 <div>
-  <h4><%= "Price per day: $" @outfit.price_per_day %></h4>
+  <h4>Price per day: $<%= @outfit.price_per_day %></h4>
 </div>
