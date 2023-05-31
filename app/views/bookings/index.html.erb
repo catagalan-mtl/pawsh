@@ -7,7 +7,7 @@
     <p><%= booking.start_date %> - <%= booking.end_date %></p>
       <% if booking.status == "pending" %>
         <%= button_to "Accept", booking_accept_path(booking), method: :patch %>
-        <a href="#">Decline</a>
+        <%= button_to "Decline", booking_decline_path(booking), method: :patch %>
       <% end %>
   <% end %>
 </div>
