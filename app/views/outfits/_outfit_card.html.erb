@@ -1,0 +1,15 @@
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= cl_image_tag Outfit.last.photos[0].key, height: 100, width: 150, crop: :fill %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body text-end">
+        <h5 class="card-title"><%= Outfit.last.title %></h5>
+        <p class="card-text">$ <%= Outfit.last.price_per_day %>/day</p>
+        <p class="card-text">Size: <%= Outfit.last.size %></p>
+      </div>
+    </div>
+  </div>
+    <a class="btn btn-flat" href="#" >Book now!</a>
+</div>

@@ -2,7 +2,7 @@ class Outfit < ApplicationRecord
   ANIMALS = %w[Cat Dog Lizard Squirrel Parrot]
   SIZES = %w[XS S M L XL]
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   validates :title, presence: true
   validates :size, inclusion: { in: SIZES }
