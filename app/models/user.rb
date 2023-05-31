@@ -7,6 +7,4 @@ class User < ApplicationRecord
 
   has_many :outfits
   has_many :bookings
-
-  validates :avatar_url, presence: true
 end
