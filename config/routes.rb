@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:show, :index]
 
+  patch "bookings/:id", to: "bookings#accept", as: :booking_accept
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
