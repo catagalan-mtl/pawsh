@@ -1,6 +1,13 @@
-<h1>Bookings</h1>
-<ul>
+<h1>Bookings Requests</h1>
+
+<div>
   <% @bookings.each do |booking| %>
-  <li> <%= booking %> </li>
+    <h3><%= booking.outfit.title %></h3>
+    <p>Booking status: <%= booking.status %></p>
+    <p><%= booking.start_date %> - <%= booking.end_date %></p>
+      <% if booking.status == "pending" %>
+        <a href="#">Accept</a>
+        <a href="#">Decline</a>
+      <% end %>
   <% end %>
-</ul>
+</div>
