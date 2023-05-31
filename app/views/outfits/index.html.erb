@@ -1,9 +1,11 @@
-<h1>Your pet's next outfit...</h1>
+<h1 class="text-center">Your pet's next outfit...</h1>
 
-<% @outfits.each do |outfit| %>
-  <%= cl_image_tag outfit.photos[0].key, height: 100, width: 150, crop: :fill %>
-  <h5><%= outfit.title %></h5>
-  <p>$ <%= outfit.price_per_day %>/day</p>
-  <p>Size: <%= outfit.size %></p>
-  <%= link_to 'View outfit', outfit_path(outfit) %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <% @outfits.each do |outfit| %>
+        <%= render "outfit_card" %>
+      <% end %>
+    </div>
+  </div>
+</div>
