@@ -17,8 +17,8 @@ class OutfitsController < ApplicationController
     end
   end
 
-  def show
-    @outfit = Outfit.find(params[:id])
+  def home
+    @outfits = Outfit.all
   end
 
   private
