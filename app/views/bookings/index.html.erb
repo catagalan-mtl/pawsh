@@ -9,8 +9,8 @@
         <h3><%= booking.outfit.title %></h3>
         <p>Booking status: <%= booking.status %></p>
         <p><%= booking.start_date %> - <%= booking.end_date %></p>
-            <a href="#">Accept</a>
-            <a href="#">Decline</a>
+          <%= button_to "Accept", booking_update_state_path(booking), method: :patch, params: { status: "accepted" } %>
+          <%= button_to "Decline", booking_update_state_path(booking), method: :patch, params: { status: "declined" } %>
       <% end %>
     <% end %>
   </div>
