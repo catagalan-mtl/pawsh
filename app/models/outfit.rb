@@ -18,7 +18,7 @@ class Outfit < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_occasion_and_description,
-                  against: %i[title occasion description],
+                  against: %i[title occasion description address],
                   using: {
                     tsearch: { prefix: true }
                   }
