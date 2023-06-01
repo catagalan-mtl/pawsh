@@ -1,10 +1,25 @@
 <h1>Your pet's next outfit...</h1>
 
+
+
 <div class="main-container d-flex align-top">
-  <div class="container d-flex justify-content-between mt-5">
-    <div class="card_grid_index">
-      <% @outfits.each do |outfit| %>
-        <%= render "/outfits/outfit_card", outfit: outfit%>
+  <div class="container mt-1">
+
+  <%= form_with url: outfits_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search-bar",
+        placeholder: "Find the most fabulous outfit now!"%>
+  <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+  <% end %>
+
+    <div class="card_grid_index mt-4">
+      <% if @outfits.any? %>
+        <% @outfits.each do |outfit| %>
+          <%= render "/outfits/outfit_card", outfit: outfit%>
+        <% end %>
+      <% else %>
+        <em>Sorry, no outfits match your criteria.</em>
       <% end %>
     </div>
   </div>
