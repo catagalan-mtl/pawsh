@@ -4,10 +4,10 @@
 
   <div>
     <% @renter_bookings.each do |booking| %>
+      <% if booking.status == "pending" %>
       <h3><%= booking.outfit.title %></h3>
       <p>Booking status: <%= booking.status %></p>
       <p><%= booking.start_date %> - <%= booking.end_date %></p>
-        <% if booking.status == "pending" %>
           <a href="#">Accept</a>
           <a href="#">Decline</a>
         <% end %>
@@ -15,7 +15,7 @@
   </div>
 
   <% @renter_bookings.each do |booking| %>
-    <% if  booking.status == "accepted" %>
+    <% if booking.status == "accepted" %>
       <h2>Confirmed booking requests for your outfits:</h2>
       <h5><%= booking.outfit.title %></h5>
       <p><%= booking.start_date %> - <%= booking.end_date %></p>
