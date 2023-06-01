@@ -1,16 +1,17 @@
 <% if @renter_bookings.any? %>
-  <h2>Your pending booking requests:</h2>
-  <p>These requests to book your outfits are awaiting an answer!</p>
+
 
   <div>
     <% @renter_bookings.each do |booking| %>
       <% if booking.status == "pending" %>
-      <h3><%= booking.outfit.title %></h3>
-      <p>Booking status: <%= booking.status %></p>
-      <p><%= booking.start_date %> - <%= booking.end_date %></p>
-          <a href="#">Accept</a>
-          <a href="#">Decline</a>
-        <% end %>
+        <h2>Your pending booking requests:</h2>
+        <p>These requests to book your outfits are awaiting an answer!</p>
+        <h3><%= booking.outfit.title %></h3>
+        <p>Booking status: <%= booking.status %></p>
+        <p><%= booking.start_date %> - <%= booking.end_date %></p>
+            <a href="#">Accept</a>
+            <a href="#">Decline</a>
+      <% end %>
     <% end %>
   </div>
 
