@@ -1,0 +1,22 @@
+.card {
+  min-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  color: $navy;
+
+}
+
+.card-content {
+  height: 200px;
+}
+
+.card-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+}

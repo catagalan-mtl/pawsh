@@ -1,0 +1,9 @@
+<div class="booking_card">
+  <div class="card-content">
+    <h5><%= booking.outfit.title %></h5>
+    <p><%= booking.start_date %> - <%= booking.end_date %></p>
+  </div>
+  <div class="card-image">
+    <%= cl_image_tag booking.outfit.photos[0].key, class: "card-image", crop: :fill %>
+  </div>
+</div>

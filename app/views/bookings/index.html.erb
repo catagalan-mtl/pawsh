@@ -6,11 +6,10 @@
       <% if booking.status == "pending" %>
         <h2>Your pending booking requests:</h2>
         <p>These requests to book your outfits are awaiting an answer!</p>
-        <h3><%= booking.outfit.title %></h3>
-        <p>Booking status: <%= booking.status %></p>
-        <p><%= booking.start_date %> - <%= booking.end_date %></p>
-            <a href="#">Accept</a>
-            <a href="#">Decline</a>
+        <%= render "booking_card", booking: booking %>
+            <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                <a href="#">Accept</a>
+                <a href="#">Decline</a>
       <% end %>
     <% end %>
   </div>
@@ -18,8 +17,7 @@
   <% @renter_bookings.each do |booking| %>
     <% if booking.status == "accepted" %>
       <h2>Confirmed booking requests for your outfits:</h2>
-      <h5><%= booking.outfit.title %></h5>
-      <p><%= booking.start_date %> - <%= booking.end_date %></p>
+      <%= render "booking_card", booking: booking %>
     <% end %>
   <% end %>
 
@@ -33,11 +31,10 @@
 
   <div>
     <% @rentee_bookings.each do |booking| %>
-      <h3><%= booking.outfit.title %></h3>
-      <p>Booking status: <%= booking.status %></p>
-      <p><%= booking.start_date %> - <%= booking.end_date %></p>
+    <%= render "booking_card", booking: booking %>
     <% end %>
   </div>
 <% else %>
-  <h2>You have no upcoming outfits</h2>
+  <h2>You have no upcoming outfits! </h2>
+  <%= link_to 'Browse outfits', outfits_path %>
 <% end %>
