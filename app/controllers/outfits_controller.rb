@@ -2,6 +2,12 @@ class OutfitsController < ApplicationController
 
   def index
     @outfits = Outfit.all
+    @markers = @outfits.geocoded.map do |outfit|
+      {
+        lat: outfit.latitude,
+        lng: outfit.longitude
+      }
+    end
   end
 
   def new
