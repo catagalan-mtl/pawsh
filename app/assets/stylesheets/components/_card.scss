@@ -2,8 +2,11 @@
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:16px;
+
 }
 
-.outfit_card a {
-
+.card_grid_index {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:16px;
 }
