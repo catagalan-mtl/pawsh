@@ -27,6 +27,7 @@ file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472015/d
 christmas.photos.attach(io: file, filename: "dog_christmas2.jpg")
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472014/dog_christmas3.jpg")
 christmas.photos.attach(io: file, filename: "dog_christmas3.jpg")
+christmas.address = "5333 Casgrain ave Montreal"
 christmas.save!
 
 puts "Christmas successfully created"
@@ -42,6 +43,7 @@ file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471721/d
 raincoat.photos.attach(io: file, filename: "dog_raincoat3.jpg")
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471721/dog_raincoat4.jpg")
 raincoat.photos.attach(io: file, filename: "dog_raincoat4.jpg")
+raincoat.address = "705 Saint-Catherine Montreal"
 raincoat.save!
 
 puts "Raincoat successfully created"
@@ -55,6 +57,7 @@ file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471460/c
 halloween.photos.attach(io: file, filename: "cat_halloween2.jpg")
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471460/cat_halloween.jpg")
 halloween.photos.attach(io: file, filename: "cat_halloween3.jpg")
+halloween.address = "1500 Saint-Catherine Montreal"
 halloween.save!
 
 puts "halloween successfully created"
