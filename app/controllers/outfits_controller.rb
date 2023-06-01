@@ -12,10 +12,8 @@ class OutfitsController < ApplicationController
     @outfit = Outfit.new(outfit_params)
     @outfit.user = current_user
     if @outfit.save
-      # raise
       redirect_to outfit_path(@outfit)
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
