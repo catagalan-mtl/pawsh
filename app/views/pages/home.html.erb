@@ -1,7 +1,9 @@
 <%= render "banner" %>
 
 <div class="container d-flex justify-content-between mt-5">
-<% @outfits.sample(3).each do |outfit| %>
-    <%= render "/outfits/outfit_card", outfit: outfit%>
-<% end %>
+  <div class="card_grid">
+    <% @outfits.sample(3).each do |outfit| %>
+        <%= render "/outfits/outfit_card", outfit: outfit%>
+    <% end %>
+  </div>
 </div>

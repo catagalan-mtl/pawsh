@@ -1,9 +1,9 @@
 <h1>Your pet's next outfit...</h1>
 
-<% @outfits.each do |outfit| %>
-  <%= cl_image_tag outfit.photos[0].key, height: 100, width: 150, crop: :fill %>
-  <h5><%= outfit.title %></h5>
-  <p>$ <%= outfit.price_per_day %>/day</p>
-  <p>Size: <%= outfit.size %></p>
-  <%= link_to 'View outfit', outfit_path(outfit) %>
-<% end %>
+<div class="container d-flex justify-content-between mt-5">
+  <div class="card_grid">
+    <% @outfits.each do |outfit| %>
+      <%= render "/outfits/outfit_card", outfit: outfit%>
+    <% end %>
+  </div>
+</div>
