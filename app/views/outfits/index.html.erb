@@ -1,15 +1,17 @@
 <h1>Your pet's next outfit...</h1>
 
-<div class="container d-flex justify-content-between mt-5">
-  <div class="card_grid">
-    <% @outfits.each do |outfit| %>
-      <%= render "/outfits/outfit_card", outfit: outfit%>
-    <% end %>
+<div class="main-container d-flex align-top">
+  <div class="container d-flex justify-content-between mt-5">
+    <div class="card_grid_index">
+      <% @outfits.each do |outfit| %>
+        <%= render "/outfits/outfit_card", outfit: outfit%>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div id=map style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
