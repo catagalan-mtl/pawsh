@@ -14,7 +14,7 @@
     <% end %>
   </div>
 
-  <% @renter_bookings.each do |book| %>
+  <% @renter_bookings.each do |booking| %>
     <% if  booking.status == "accepted" %>
       <h2>Confirmed booking requests for your outfits:</h2>
       <h5><%= booking.outfit.title %></h5>
@@ -24,4 +24,19 @@
 
 <% else %>
   <h2>You have no booking requests!</h2>
+<% end %>
+
+<% if @rentee_bookings.any? %>
+  <h2>Your booked outfits</h2>
+  <p>Your pet is going to be the next big Instagram star with these...</p>
+
+  <div>
+    <% @rentee_bookings.each do |booking| %>
+      <h3><%= booking.outfit.title %></h3>
+      <p>Booking status: <%= booking.status %></p>
+      <p><%= booking.start_date %> - <%= booking.end_date %></p>
+    <% end %>
+  </div>
+<% else %>
+  <h2>You have no upcoming outfits</h2>
 <% end %>

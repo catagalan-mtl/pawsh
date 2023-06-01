@@ -7,6 +7,13 @@ class BookingsController < ApplicationController
           @renter_bookings << booking
         end
       end
+
+    @rentee_bookings = []
+    @bookings.each do |booking|
+      if booking.user.id == current_user.id
+        @rentee_bookings << booking
+      end
+    end
   end
 
   def show
