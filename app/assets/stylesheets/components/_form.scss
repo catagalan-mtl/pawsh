@@ -2,17 +2,30 @@ body{
   background-color: $white
 }
 .card{
-  width:400px; background-color: $light-blue; border:none; border-radius: 12px
+  width:400px;
+  border:none;
+  border-radius: 12px
 }
+.card-shape{
+  background-color: $light-blue;
+}
+
 .form-control{
-  margin-top: 10px; height: 48px; border: 2px solid #eee; border-radius: 10px; color: #788185
+  margin-top: 10px;
+  height: 48px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  color: #788185
 }
 .form-control:focus{
-  box-shadow: none; border: 2px solid $navy
+  box-shadow: none;
+  border: 2px solid $navy
 }
 .agree-text{
   font-size: 12px
 }
 .terms{
-  font-size: 12px; text-decoration: none; color: #039BE5
+  font-size: 12px;
+  text-decoration: none;
+  color: #039BE5
 }
