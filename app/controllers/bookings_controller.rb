@@ -1,6 +1,19 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
+    @renter_bookings = []
+    @bookings.each do |booking|
+        if booking.outfit.user.id == current_user.id
+          @renter_bookings << booking
+        end
+      end
+
+    @rentee_bookings = []
+    @bookings.each do |booking|
+      if booking.user.id == current_user.id
+        @rentee_bookings << booking
+      end
+    end
   end
 
   def show

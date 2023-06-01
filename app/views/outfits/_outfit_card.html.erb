@@ -1,23 +1,22 @@
-<% @outfits.sample(3).each do |outfit| %>
 
-  <div class="card mb-3">
-    <div class="card-content row g-0">
-      <div class="col-6">
-        <%= cl_image_tag outfit.photos[0].key, class: "card-image", crop: :fill %>
-      </div>
-      <div class="col-6">
-        <div class="card-body text-end">
-          <h4 class="card-title"><%= outfit.title %></h4>
-          <p class="card-text mb-0">for: <strong><%= outfit.animal %></strong></p>
-          <p class="card-text mb-0">Size: <%= outfit.size %></p>
-          <div class="card-text price mt-3">
-            <p class="card-text mb-0">$ <%= outfit.price_per_day %>/day</p>
-          </div>
 
+  <div class="card outfit_card mb-3">
+    <%= link_to outfit_path(outfit) do %>
+      <div class="card-content row g-0">
+        <div class="col-6">
+          <%= cl_image_tag outfit.photos[0].key, class: "card-image", crop: :fill %>
         </div>
-
+        <div class="col-6">
+          <div class="card-body text-end">
+            <h4 class="card-title"><%= outfit.title %></h4>
+            <p class="card-text mb-0">for: <strong><%= outfit.animal %></strong></p>
+            <p class="card-text mb-0">Size: <%= outfit.size %></p>
+            <div class="card-text price mt-3">
+              <p class="card-text mb-0">$ <%= outfit.price_per_day %>/day</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-      <a class="btn btn-flat" href="#" >Book now!</a>
+      <% end %>
+    <%= link_to "Book now", new_outfit_booking_path(outfit), class:"btn btn-flat" %>
   </div>
-<% end %>
