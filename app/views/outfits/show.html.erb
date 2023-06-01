@@ -6,8 +6,13 @@
       <p>Special Occasion: <%=@outfit.occasion %></p>
     <% end %>
     <p>Size: <%= @outfit.size  %></p>
-    <p>Description: </p><%= @outfit.description %>
-  </p>
+    <p>Description: </p><%= @outfit.description %></p>
+</div>
+
+<div>
+  <% @outfit.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
+  <% end %>
 </div>
 
 <div>
