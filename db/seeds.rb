@@ -71,7 +71,7 @@ file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685718656/B
 halloween.photos.attach(io: file, filename: "bee_parrot2.jpg")
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685718656/Bee_parrot3.webp")
 halloween.photos.attach(io: file, filename: "bee_parrot3.jpg")
-halloween.address = "74 av fraimount 0 Montreal"
+halloween.address = "74 av fairmount 0 Montreal"
 halloween.save!
 
 puts "Bee outfit parrot successfully created"
