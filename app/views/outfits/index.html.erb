@@ -16,7 +16,9 @@
     <div class="card_grid_index mt-4">
       <% if @outfits.any? %>
         <% @outfits.each do |outfit| %>
-          <%= render "/outfits/outfit_card", outfit: outfit%>
+          <% if outfit.user_id != current_user.id %>
+            <%= render "/outfits/outfit_card", outfit: outfit%>
+          <% end %>
         <% end %>
       <% else %>
         <em>Sorry, no outfits match your criteria.</em>
