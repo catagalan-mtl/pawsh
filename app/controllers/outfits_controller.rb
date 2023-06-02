@@ -1,7 +1,11 @@
 class OutfitsController < ApplicationController
 
   def index
-    @outfits = Outfit.all
+    if params[:query].present?
+      @outfits = Outfit.search_by_title_occasion_and_description(params[:query])
+    else
+      @outfits = Outfit.all
+    end
     @markers = @outfits.geocoded.map do |outfit|
       {
         lat: outfit.latitude,

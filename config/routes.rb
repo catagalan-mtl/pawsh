@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:show, :index]
+  resources :bookings, only: [:show, :index] do
+    patch "/state", to: "bookings#update_state", as: "update_state"
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
