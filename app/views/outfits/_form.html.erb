@@ -1,9 +1,9 @@
 
 <%= simple_form_for(outfit) do |f| %>
 <div class="container mt-5 mb-5 d-flex justify-content-center">
-    <div class="card px-1 py-4 card-shape">
+    <div class="card px-1 py-6 card-shape">
         <div class="card-body">
-            <h6 class="information mt-4">Your outfit details:</h6>
+            <h4 class="information mt-4">Your outfit details:</h4>
             <div class="row">
               <div class="col-sm-12">
                     <%= f.input :title, class: "form-control", placeholder: "Title", label: false %>
@@ -11,12 +11,12 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
-                        <%= f.input :animal, input_html: {class: "form-control"}, :collection => Outfit::ANIMALS, prompt: "Animals" %>
+                        <%= f.input :animal, input_html: {class: "form-control"}, :collection => Outfit::ANIMALS, prompt: "Animals", label: false %>
               </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                          <%= f.input :size, input_html: {class: "form-control"}, :collection => Outfit::SIZES, prompt: "Size" %>
+                          <%= f.input :size, input_html: {class: "form-control"}, :collection => Outfit::SIZES, prompt: "Size", label: false %>
                 </div>
             </div>
             <div class="row">
@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                          <%= f.input :photos, as: :file, input_html: { multiple: true } %> </div>
+                          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Upload your pictures" %> </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
