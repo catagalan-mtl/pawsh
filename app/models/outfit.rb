@@ -10,9 +10,19 @@ class Outfit < ApplicationRecord
   validates :price_per_day, presence: true
   validates :animal, inclusion: { in: ANIMALS }
   validates :photos, presence: true
+  validates :address, presence: true
 
   has_many_attached :photos
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title_occasion_and_description,
+                  against: %i[title animal occasion description address],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
+  monetize :price_cents
 end

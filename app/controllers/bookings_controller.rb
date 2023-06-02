@@ -22,6 +22,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @booking.start_date = Date.today
+    @booking.end_date = Date.tomorrow
     @outfit = Outfit.find(params[:outfit_id])
   end
 
@@ -31,11 +33,19 @@ class BookingsController < ApplicationController
     @booking.outfit_id = params[:outfit_id]
     @booking.user = current_user
     if @booking.save
-      redirect_to outfit_path(params[:outfit_id])
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+  def update_state
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to bookings_path
+  end
+
 
   private
 
