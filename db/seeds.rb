@@ -57,9 +57,51 @@ file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471460/c
 halloween.photos.attach(io: file, filename: "cat_halloween2.jpg")
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471460/cat_halloween.jpg")
 halloween.photos.attach(io: file, filename: "cat_halloween3.jpg")
-halloween.address = "1500 Saint-Catherine Montreal"
+halloween.address = "1342 Saint-Denis Montreal"
 halloween.save!
 
-puts "halloween successfully created"
+puts "halloween outfit for cat"
+
+description = "Want to turn your parrot into a bee for Halloween ?"
+halloween = Outfit.new(title: "Bee outfit for parrot", size: "S", occasion: "Halloween", description: description, animal: "Parrot", price_per_day: 81)
+halloween.user = User.all.sample
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685718656/Bee_parrot1.webp")
+halloween.photos.attach(io: file, filename: "bee_parrot.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685718656/Bee_parrot2.webp")
+halloween.photos.attach(io: file, filename: "bee_parrot2.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685718656/Bee_parrot3.webp")
+halloween.photos.attach(io: file, filename: "bee_parrot3.jpg")
+halloween.address = "74 av fraimount 0 Montreal"
+halloween.save!
+
+puts "Bee outfit parrot successfully created"
+
+description = "Want to turn your lizard into a frog for Halloween ?"
+halloween = Outfit.new(title: "Frog outfit for lizard", size: "S", occasion: "Halloween", description: description, animal: "Lizard", price_per_day: 51)
+halloween.user = User.all.sample
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719087/frog_lizard2.avif")
+halloween.photos.attach(io: file, filename: "frog_lizard.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719087/frog_lizard1.avif")
+halloween.photos.attach(io: file, filename: "frog_lizard2.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719087/frog_lizard3.avif")
+halloween.photos.attach(io: file, filename: "frog_lizard3.jpg")
+halloween.address = "994 rue rachel E Montreal"
+halloween.save!
+
+puts "Frog outfit Lizard successfully created"
+
+description = "Your Lizard is fan of Harry Potter ? Here is the most amazing outfit for Halloween !"
+halloween = Outfit.new(title: "Wizard outfit for lizard", size: "S", occasion: "Halloween", description: description, animal: "Lizard", price_per_day: 53)
+halloween.user = User.all.sample
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719586/wizard_lizard1.avif")
+halloween.photos.attach(io: file, filename: "wizard_lizard.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719590/wizard_lizard2.avif")
+halloween.photos.attach(io: file, filename: "wizard_lizard2.jpg")
+file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719595/wizard_lizard3.avif")
+halloween.photos.attach(io: file, filename: "wizard_lizard3.jpg")
+halloween.address = "4185 rue drolet Montreal"
+halloween.save!
+
+puts "Wizard outfit Lizard successfully created"
 
 puts "all done"
