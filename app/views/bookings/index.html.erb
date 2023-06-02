@@ -2,19 +2,13 @@
 
 
   <div>
-    <% @renter_bookings.each do |booking| %>
-      <% if booking.status == "pending" %>
-        <h2>Your pending booking requests:</h2>
-        <p>These requests to book your outfits are awaiting an answer!</p>
-
-        <%= render "booking_card", booking: booking %>
-          <h3><%= booking.outfit.title %></h3>
-          <p>Booking status: <%= booking.status %></p>
-          <p><%= booking.start_date %> - <%= booking.end_date %></p>
-            <%= button_to "Accept", booking_update_state_path(booking), method: :patch, params: { status: "accepted" } %>
-            <%= button_to "Decline", booking_update_state_path(booking), method: :patch, params: { status: "declined" } %>
+    <h2>Your pending booking requests:</h2>
+    <p>These requests to book your outfits are awaiting an answer!</p>
+      <% @renter_bookings.each do |booking| %>
+        <% if booking.status == "pending" %>
+          <%= render "booking_card", booking: booking %>
+        <% end %>
       <% end %>
-    <% end %>
   </div>
 
   <% @renter_bookings.each do |booking| %>
@@ -23,21 +17,20 @@
       <%= render "booking_card", booking: booking %>
     <% end %>
   <% end %>
-
-<% else %>
-  <h2>You have no booking requests!</h2>
 <% end %>
 
-<% if @rentee_bookings.any? %>
-  <h2>Your booked outfits</h2>
-  <p>Your pet is going to be the next big Instagram star with these...</p>
+<div>
+  <% if @rentee_bookings.any? %>
+    <h2>Your booked outfits</h2>
+    <p>Your pet is going to be the next big Instagram star with these...</p>
 
-  <div>
-    <% @rentee_bookings.each do |booking| %>
-    <%= render "booking_card", booking: booking %>
-    <% end %>
-  </div>
-<% else %>
-  <h2>You have no upcoming outfits! </h2>
-  <%= link_to 'Browse outfits', outfits_path %>
-<% end %>
+    <div>
+      <% @rentee_bookings.each do |booking| %>
+        <%= render "booking_card", booking: booking %>
+      <% end %>
+    </div>
+  <% else %>
+    <h2>You have no upcoming outfits! </h2>
+    <%= link_to 'Browse outfits', outfits_path %>
+  <% end %>
+</div>

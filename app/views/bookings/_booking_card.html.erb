@@ -1,9 +1,20 @@
-<div class="booking_card">
-  <div class="card-content">
-    <h5><%= booking.outfit.title %></h5>
-    <p><%= booking.start_date %> - <%= booking.end_date %></p>
-  </div>
-  <div class="card-image">
-    <%= cl_image_tag booking.outfit.photos[0].key, class: "card-image", crop: :fill %>
+<div class="card booking_card mb-3">
+  <div class="card-content row g-0">
+    <div class="col-6">
+      <%= cl_image_tag booking.outfit.photos[0].key, class: "card-image", crop: :fill %>
+    </div>
+    <div class="col-6">
+      <div class="card-body text-end">
+        <h5><%= booking.outfit.title %></h5>
+        <p><%= booking.start_date %> - <%= booking.end_date %></p>
+        <p>Status: <%= booking.status %></p>
+    <% if booking.outfit.user_id == current_user.id %>
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <%= button_to "Accept", booking_update_state_path(booking), method: :patch, params: { status: "accepted" }, class:"btn-flat accept" %>
+        <%= button_to "Decline", booking_update_state_path(booking), method: :patch, params: { status: "declined" }, class:"btn-flat decline" %>
+      </div>
+    <% end %>
+      </div>
+    </div>
   </div>
 </div>
