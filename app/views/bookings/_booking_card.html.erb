@@ -8,7 +8,7 @@
         <h5><%= booking.outfit.title %></h5>
         <p><%= booking.start_date %> - <%= booking.end_date %></p>
         <p>Status: <%= booking.status %></p>
-    <% if booking.outfit.user_id == current_user.id %>
+    <% if booking.outfit.user_id == current_user.id && booking.status == "pending" %>
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <%= button_to "Accept", booking_update_state_path(booking), method: :patch, params: { status: "accepted" }, class:"btn-flat accept" %>
         <%= button_to "Decline", booking_update_state_path(booking), method: :patch, params: { status: "declined" }, class:"btn-flat decline" %>
