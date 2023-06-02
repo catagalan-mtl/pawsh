@@ -3,10 +3,14 @@
   background: $green;
   font-family: $body-font;
   font-size: 20px;
+  color: $white;
 
   h1 {
     font-family: $headers-font;
     font-size: 40;
+  }
+
+  .nav-link {
     color: $white;
   }
 }
