@@ -34,6 +34,9 @@ gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
 gem "open-uri"
 
+# price format display
+gem 'money-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

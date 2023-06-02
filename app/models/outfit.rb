@@ -23,4 +23,6 @@ class Outfit < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  monetize :price_cents
 end
