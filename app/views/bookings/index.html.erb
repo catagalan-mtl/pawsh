@@ -1,43 +1,27 @@
-<% if @renter_bookings.any? %>
-
-
-  <div>
-    <% @renter_bookings.each do |booking| %>
-      <% if booking.status == "pending" %>
-        <h2>Your pending booking requests:</h2>
-        <p>These requests to book your outfits are awaiting an answer!</p>
-        <h3><%= booking.outfit.title %></h3>
-        <p>Booking status: <%= booking.status %></p>
-        <p><%= booking.start_date %> - <%= booking.end_date %></p>
-            <a href="#">Accept</a>
-            <a href="#">Decline</a>
+<div class="container">
+  <div class="row justify-content-evenly">
+    <div class="col-6">
+      <% if @renter_bookings.any? %>
+        <h2>Booking requests for your outfits:</h2>
+          <% @renter_bookings.each do |booking| %>
+              <%= render "booking_card", booking: booking %>
+            <% end %>
+      <% else %>
+        <h2>You have no outfits being rented right now.</h2>
+        <%= link_to 'List a new outfit', new_outfit_path, class:"btn btn-flat" %>
       <% end %>
-    <% end %>
+    </div>
+
+    <div class="col-6">
+      <% if @rentee_bookings.any? %>
+        <h2>Your booked outfits:</h2>
+        <% @rentee_bookings.each do |booking| %>
+          <%= render "booking_card", booking: booking %>
+        <% end %>
+      <% else %>
+        <h2>You have no upcoming outfits! </h2>
+        <%= link_to 'Browse outfits', outfits_path, class:"btn btn-flat" %>
+      <% end %>
+    </div>
   </div>
-
-  <% @renter_bookings.each do |booking| %>
-    <% if booking.status == "accepted" %>
-      <h2>Confirmed booking requests for your outfits:</h2>
-      <h5><%= booking.outfit.title %></h5>
-      <p><%= booking.start_date %> - <%= booking.end_date %></p>
-    <% end %>
-  <% end %>
-
-<% else %>
-  <h2>You have no booking requests!</h2>
-<% end %>
-
-<% if @rentee_bookings.any? %>
-  <h2>Your booked outfits</h2>
-  <p>Your pet is going to be the next big Instagram star with these...</p>
-
-  <div>
-    <% @rentee_bookings.each do |booking| %>
-      <h3><%= booking.outfit.title %></h3>
-      <p>Booking status: <%= booking.status %></p>
-      <p><%= booking.start_date %> - <%= booking.end_date %></p>
-    <% end %>
-  </div>
-<% else %>
-  <h2>You have no upcoming outfits</h2>
-<% end %>
+</div>
