@@ -4,10 +4,15 @@ body{
 .card{
   width:60%;
   border:none;
-  border-radius: 10px
 }
-.card-shape{
+
+.card-color{
   background-color: $light-blue;
+}
+
+.card-body {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .form-control{
@@ -48,4 +53,11 @@ body{
 
 .description {
   height: 100px;
+}
+
+
+.new_booking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
