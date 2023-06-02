@@ -37,6 +37,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update_state
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to bookings_path
+  end
+
+
   private
 
   def booking_params
