@@ -12,7 +12,7 @@
             <p class="card-text mb-0">for: <strong><%= outfit.animal %></strong></p>
             <p class="card-text mb-0">Size: <%= outfit.size %></p>
             <div class="card-text price mt-3">
-              <p class="card-text mb-0">$ <%= outfit.price_per_day %>/day</p>
+              <p class="card-text mb-0">$ <%= outfit.price_per_day.to_i %>/day</p>
             </div>
           </div>
         </div>

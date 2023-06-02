@@ -1,46 +1,36 @@
 
 <%= simple_form_for(outfit) do |f| %>
 <div class="container mt-5 mb-5 d-flex justify-content-center">
-    <div class="card px-1 py-4 card-shape">
-        <div class="card-body">
-            <h6 class="information mt-4">Your outfit details:</h6>
-            <div class="row">
-              <div class="col-sm-12">
-                    <%= f.input :title, class: "form-control", placeholder: "Title", label: false %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                        <%= f.input :animal, input_html: {class: "form-control"}, :collection => Outfit::ANIMALS, prompt: "Animals" %>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                          <%= f.input :size, input_html: {class: "form-control"}, :collection => Outfit::SIZES, prompt: "Size" %>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                          <%= f.input :description, class: "form-control", placeholder: "Description", label: false %> </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                          <%= f.input :occasion, class: "form-control", placeholder: "Occasion", label: false %> </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                          <%= f.input :photos, as: :file, input_html: { multiple: true } %> </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                        <%= f.input :price_per_day, class: "form-control", placeholder: "Price per day", label: false %> </div>
-            </div>
-            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3 ">
-            <small class="agree-text">By booking this outfit you agree to the</small>
-            <a href="https://www.peta.org/" class="terms">Terms & Conditions</a>
-            </div>
-            <div class=" d-flex flex-column justify-content-center"> <%= f.submit 'Create Outfit', class:'btn btn-primary'%> </div>
+    <div class="card px-0 py-6 card-shape">
+      <div class="card-body">
+        <h3 class="information mt-4">Your outfit details:</h3>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= f.input :title, class: "form-control", placeholder: "Title", label: false %>
+
+            <%= f.input :animal, input_html: {class: "form-control"}, :collection => Outfit::ANIMALS, prompt: "Animals", label: false %>
+
+            <%= f.input :size, input_html: {class: "form-control"}, :collection => Outfit::SIZES, prompt: "Size", label: false %>
+
+            <%= f.input :occasion, class: "form-control", placeholder: "Occasion", label: false %>
+
+            <%= f.input :description, as: :text, input_html: {class: "form-control description"}, placeholder: "Description", label: false %>
+
+            <%= f.input :address, class: "form-control", placeholder: "Address", label: false %>
+
+            <%= f.input :price_per_day, class: "form-control", placeholder: "Price per day", label: false %>
+
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Upload your pictures" %>
+
+          </div>
         </div>
+        <div class=" d-flex flex-column text-center px-5 mt-3 mb-3 ">
+          <small class="agree-text">By booking this outfit you agree to the</small>
+          <a href="https://www.peta.org/" class="terms">Terms & Conditions</a>
+        </div>
+      </div>
+    <div class=" d-flex flex-column justify-content-center"> <%= f.submit 'Create Outfit', class:'btn btn-flat btn-big'%>
+    </div>
     </div>
 </div>
 <% end %>

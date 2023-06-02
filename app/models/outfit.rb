@@ -10,6 +10,7 @@ class Outfit < ApplicationRecord
   validates :price_per_day, presence: true
   validates :animal, inclusion: { in: ANIMALS }
   validates :photos, presence: true
+  validates :address, presence: true
 
   has_many_attached :photos
 
@@ -22,4 +23,6 @@ class Outfit < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  monetize :price_cents
 end
