@@ -1,17 +1,8 @@
 <h1>New Booking</h1>
-<<<<<<< Updated upstream
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="container col-4 m-3">
-      <%= simple_form_for [@outfit, @booking]  do |f| %>
-        <%= f.input :start_date, html5: true %>
-        <%= f.input :end_date, html5: true %>
-        <%= f.submit "Submit booking", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+<div class="container mt-5 mb-5">
+  <%= render "animal_card", outfit: @outfit %>
+
+  <%= render "form_2", outfit: @outfit, booking: @booking %>
+
 </div>
-=======
-<%= render "form_2", outfit: @outfit, booking: @booking %>
->>>>>>> Stashed changes
