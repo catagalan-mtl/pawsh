@@ -22,6 +22,9 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @booking.start_date = Date.today
+    @booking.end_date = Date.tomorrow
+
     @outfit = Outfit.find(params[:outfit_id])
   end
 
