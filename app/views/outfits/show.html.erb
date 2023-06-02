@@ -1,104 +1,21 @@
-<h2><%= @outfit.title %></h2>
-<h4> for <%=  @outfit.animal %></h4>
-
-<div>
-    <% if @outfit.occasion != nil %>
-      <p>Special Occasion: <%=@outfit.occasion %></p>
-    <% end %>
-    <p>Size: <%= @outfit.size  %></p>
-    <p>Description: </p><%= @outfit.description %></p>
-</div>
-
-<div>
-  <% @outfit.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
-  <% end %>
-</div>
-
-<div>
-  <h4>Price per day: $<%= @outfit.price_per_day %></h4>
-</div>
-<%= link_to "Book now ! ",  new_outfit_booking_path(@outfit) %>
-
-
-
 <div class="container mt-5 mb-5">
-
         <div class="row d-flex justify-content-center">
-
             <div class="col-md-8">
-
                 <div class="card">
-
-
                         <div class="text-left logo p-2 px-5">
-
-                            <img src="https://i.imgur.com/2zDU056.png" width="50">
-
-
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Paw-print.svg" width="50">
                         </div>
 
                         <div class="invoice p-5">
+                            <h2>Your next Pawsh outfit!</h2>
+                            <h4> for <%=  @outfit.animal %></h4>
 
-                            <h5>Your order Confirmed!</h5>
-
-                            <span class="font-weight-bold d-block mt-4">Hello, Chris</span>
-                            <span>You order has been confirmed and will be shipped in next two days!</span>
+                            <span class="font-weight-bold d-block mt-4">Hello,</span>
+                            <span>Your ouftit will be ready for pickup!</span>
 
                             <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
 
                                 <table class="table table-borderless">
-
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="py-2">
-
-                                                    <span class="d-block text-muted">Order Date</span>
-                                                <span>12 Jan,2018</span>
-
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <div class="py-2">
-
-                                                    <span class="d-block text-muted">Order No</span>
-                                                <span>MT12332345</span>
-
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <div class="py-2">
-
-                                                    <span class="d-block text-muted">Payment</span>
-                                                <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span>
-
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <div class="py-2">
-
-                                                    <span class="d-block text-muted">Shiping Address</span>
-                                                <span>414 Advert Avenue, NY,USA</span>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-
-
-
-
-
-                            </div>
-
-
-
 
                                 <div class="product border-bottom table-responsive">
 
@@ -107,45 +24,27 @@
                                     <tbody>
                                         <tr>
                                             <td width="20%">
-
-                                            <img src="https://i.imgur.com/u11K1qd.jpg" width="90">
-
-                                        </td>
-
-                                        <td width="60%">
-                                            <span class="font-weight-bold">Men's Sports cap</span>
-                                            <div class="product-qty">
-                                                <span class="d-block">Quantity:1</span>
-                                                <span>Color:Dark</span>
-
-                                            </div>
-                                        </td>
-                                        <td width="20%">
-                                            <div class="text-right">
-                                                <span class="font-weight-bold">$67.50</span>
-                                            </div>
-                                        </td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td width="20%">
-
-                                            <img src="https://i.imgur.com/SmBOua9.jpg" width="70">
+                                             <% @outfit.photos.each do |photo| %>
+                                             <%= cl_image_tag photo.key, height: 90, width: 90, crop: :fill %>
+                                             <% end %>
 
                                         </td>
 
                                         <td width="60%">
-                                            <span class="font-weight-bold">Men's Collar T-shirt</span>
+                                            <span class="font-weight-bold"><%= @outfit.title %></span>
                                             <div class="product-qty">
-                                                <span class="d-block">Quantity:1</span>
-                                                <span>Color:Orange</span>
+                                                <span class="d-block">Quantity: 1</span>
+                                                <span>Size: <%= @outfit.size  %>  --------   </span>
+                                                <span>Occasion: <%= @outfit.occasion %></span>
+                                                <span>Description: <%= @outfit.description %></span>
+
 
                                             </div>
+
                                         </td>
                                         <td width="20%">
                                             <div class="text-right">
-                                                <span class="font-weight-bold">$77.50</span>
+                                                <span class="font-weight-bold">$<%= @outfit.price_per_day %></span>
                                             </div>
                                         </td>
                                         </tr>
@@ -168,64 +67,18 @@
                                             <tbody class="totals">
 
                                                 <tr>
-                                                    <td>
-                                                        <div class="text-left">
-
-                                                            <span class="text-muted">Subtotal</span>
-
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="text-right">
-                                                            <span>$168.50</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
 
                                                  <tr>
                                                     <td>
                                                         <div class="text-left">
 
-                                                            <span class="text-muted">Shipping Fee</span>
+                                                            <span class="text-muted">Shipping</span>
 
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="text-right">
-                                                            <span>$22</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-
-                                                 <tr>
-                                                    <td>
-                                                        <div class="text-left">
-
-                                                            <span class="text-muted">Tax Fee</span>
-
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="text-right">
-                                                            <span>$7.65</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-
-                                                 <tr>
-                                                    <td>
-                                                        <div class="text-left">
-
-                                                            <span class="text-muted">Discount</span>
-
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="text-right">
-                                                            <span class="text-success">$168.50</span>
+                                                            <span class="text-success">N/A</span>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -241,7 +94,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="text-right">
-                                                            <span class="font-weight-bold">$238.50</span>
+                                                            <span class="font-weight-bold">$<%= @outfit.price_per_day %></span>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -256,10 +109,13 @@
 
                                 </div>
 
+                                <p class="font-weight-bold mb-0"> <%= link_to "Book now ! ",  new_outfit_booking_path(@outfit) %> </p>
 
-                                <p>We will be sending shipping confirmation email when the item shipped successfully!</p>
-                                <p class="font-weight-bold mb-0">Thanks for shopping with us!</p>
-                                <span>Nike Team</span>
+
+                                <p>We will send a confirmation email when the outfit owner has accepted your rental.</p>
+
+                                <p class="font-weight-bold mb-0">Thank you for shopping with us!</p>
+                                <span>The Pawsh Team</span>
 
 
 
@@ -270,9 +126,7 @@
 
                         <div class="d-flex justify-content-between footer p-3">
 
-                            <span>Need Help? visit our <a href="#"> help center</a></span>
-                             <span>12 June, 2020</span>
-
+                            <span>Need Help? visit the Pawsh <a href="https://www.canadahelps.org/en/explore/charities/category/animals/"> help center</a></span>
                         </div>
 
 
