@@ -19,7 +19,7 @@ puts "All done"
 
 puts "Generating outfits"
 description = "Here is an outfit for your dog to be the cutest"
-christmas = Outfit.new(title: "Christmas outfit for dogs", size: "S", occasion: "Christmas", description: description, animal: "Dog", price_per_day: 123)
+christmas = Outfit.new(title: "Christmas outfit", size: "S", occasion: "Christmas", description: description, animal: "Dog", price_per_day: 123)
 christmas.user = mary
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685472015/dog_christmas.jpg")
 christmas.photos.attach(io: file, filename: "dog_christmas.jpg")
@@ -33,7 +33,7 @@ christmas.save!
 puts "Christmas successfully created"
 
 description = "Here is an outfit to protect your dog from the rain"
-raincoat = Outfit.new(title: "Fancy raincoat for dogs", size: "L", occasion: "Rainy day", description: description, animal: "Dog", price_per_day: 75)
+raincoat = Outfit.new(title: "Fancy raincoat", size: "L", occasion: "Rainy day", description: description, animal: "Dog", price_per_day: 75)
 raincoat.user = mary
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471721/dog_raincoat.jpg")
 raincoat.photos.attach(io: file, filename: "dog_raincoat.jpg")
@@ -49,7 +49,7 @@ raincoat.save!
 puts "Raincoat successfully created"
 
 description = "Here is a set of Halloween costumes for your cat"
-halloween = Outfit.new(title: "Halloween costume for cat", size: "M", occasion: "Halloween", description: description, animal: "Cat", price_per_day: 78)
+halloween = Outfit.new(title: "Halloween costume", size: "M", occasion: "Halloween", description: description, animal: "Cat", price_per_day: 78)
 halloween.user = mary
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685471589/cat_halloween3.jpg")
 halloween.photos.attach(io: file, filename: "cat_halloween.jpg")
@@ -63,7 +63,7 @@ halloween.save!
 puts "halloween outfit for cat"
 
 description = "Want to turn your parrot into a bee for Halloween ?"
-parrot = Outfit.new(title: "Bee outfit for parrot", size: "S", occasion: "Halloween", description: description, animal: "Parrot", price_per_day: 81)
+parrot = Outfit.new(title: "Bee outfit", size: "S", occasion: "Halloween", description: description, animal: "Parrot", price_per_day: 81)
 parrot.user = mary
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685718656/Bee_parrot1.webp")
 parrot.photos.attach(io: file, filename: "bee_parrot.jpg")
@@ -77,7 +77,7 @@ parrot.save!
 puts "Bee outfit parrot successfully created"
 
 description = "Want to turn your lizard into a frog for Halloween ?"
-lizard = Outfit.new(title: "Frog outfit for lizard", size: "S", occasion: "Halloween", description: description, animal: "Lizard", price_per_day: 51)
+lizard = Outfit.new(title: "Frog outfit", size: "S", occasion: "Halloween", description: description, animal: "Lizard", price_per_day: 51)
 lizard.user = johanna
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719087/frog_lizard2.avif")
 lizard.photos.attach(io: file, filename: "frog_lizard.jpg")
@@ -91,7 +91,7 @@ lizard.save!
 puts "Frog outfit Lizard successfully created"
 
 description = "Your Lizard is fan of Harry Potter ? Here is the most amazing outfit for Halloween !"
-halloween = Outfit.new(title: "Wizard outfit for lizard", size: "L", occasion: "Halloween", description: description, animal: "Lizard", price_per_day: 53)
+halloween = Outfit.new(title: "Wizard outfit", size: "L", occasion: "Halloween", description: description, animal: "Lizard", price_per_day: 53)
 halloween.user = mary
 file = URI.open("https://res.cloudinary.com/dbgykplat/image/upload/v1685719586/wizard_lizard1.avif")
 halloween.photos.attach(io: file, filename: "wizard_lizard.jpg")
