@@ -1,0 +1,42 @@
+.container_show_outfit {
+  margin: 20px auto;
+  display: flex;
+}
+
+.outfit_carroussel > img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  margin-right: 60px;
+}
+
+.outfit_details_section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) ;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.user {
+  p {
+    margin-bottom: 0;
+    margin-left:10px;
+  }
+
+  display: flex;
+  align-items: center;
+}
+
+.outfit_details {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.outfit_details > .btn-book {
+  width: 100%;
+  margin: auto;
+}
