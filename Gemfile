@@ -33,6 +33,7 @@ gem "jbuilder"
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
 gem "open-uri"
+gem 'swiper-rails'
 
 # price format display
 gem 'money-rails'

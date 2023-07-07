@@ -1,6 +1,15 @@
 <div class="container_show_outfit">
-  <div class="outfit_carroussel">
+  <%# <div class="outfit_carroussel">
     <%= cl_image_tag @outfit.photos.first.key, crop: :fill %>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+    <% @outfit.photos.each do |photo| %>
+      <div class="swiper-item outfit_carroussel">
+        <%= cl_image_tag photo.key, crop: :fill %>
+      </div>
+    <% end %>
+    </div>
   </div>
   <div class="outfit_details">
     <div class="outfit_details_section">
