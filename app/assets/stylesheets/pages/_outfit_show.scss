@@ -1,13 +1,19 @@
+img {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
 .container_show_outfit {
   margin: 20px auto;
   display: flex;
 }
 
-.outfit_carroussel > img {
+.outfit_view > img {
   width: 500px;
   height: 500px;
   object-fit: cover;
   margin-right: 40px;
+  margin-left: 40px;
 }
 
 .outfit_details_section {
@@ -43,4 +49,26 @@
 .outfit_details > .btn-book {
   width: 100%;
   margin: auto;
+}
+
+.outfit_pictures {
+  display: flex;
+}
+
+.outfit_thumbnails {
+  display: inline-grid;
+  height:max-content;
+  grid-gap: 15px;
+}
+
+.thumbnail {
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  opacity: 75%;
+  transition: 0.25s ease;
+}
+
+.thumbnail:hover {
+  opacity: 100%;
 }
