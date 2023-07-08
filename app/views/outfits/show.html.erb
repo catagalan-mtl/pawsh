@@ -1,8 +1,8 @@
 <div class="container_show_outfit">
-  <div class="outfit_pictures">
+  <div class="outfit_pictures" data-controller="pictures">
     <div class="outfit_thumbnails">
       <% @outfit.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, crop: :fill, class: "thumbnail" %>
+        <%= cl_image_tag photo.key, crop: :fill, class: "thumbnail", data: { pictures_target: "thumbnail" } %>
       <% end %>
     </div>
 
