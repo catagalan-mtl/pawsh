@@ -2,11 +2,13 @@
   <div class="outfit_pictures" data-controller="pictures">
     <div class="outfit_thumbnails">
       <% @outfit.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, crop: :fill, class: "thumbnail", data: { pictures_target: "thumbnail" } %>
+        <div data-action="click->pictures#update">
+          <%= cl_image_tag photo.key, crop: :fill, class: "thumbnail", data: { pictures_target: "thumbnail" } %>
+        </div>
       <% end %>
     </div>
 
-    <div class="outfit_view">
+    <div class="outfit_view" data-pictures-target="view">
       <%= cl_image_tag @outfit.photos.first.key, crop: :fill %>
     </div>
   </div>
