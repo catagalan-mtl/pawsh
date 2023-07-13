@@ -25,7 +25,7 @@
       <p>Price per day: <%= @outfit.price_per_day %> CAD</p>
     </div>
     <div class="user">
-      <%= image_tag @outfit.user.avatar_url, class: "avatar" %>
+      <%= image_tag (@outfit.user.avatar_url.nil? ? "avatar.png" : @outfit.user.avatar_url) , class: "avatar" %>
       <p><%= @outfit.user.first_name %> is the owner</p>
     </div>
     <%= link_to "Book now!", new_outfit_booking_path(@outfit), class: "btn btn-book" %>
