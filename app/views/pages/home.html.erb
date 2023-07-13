@@ -1,6 +1,6 @@
 <%= render "banner" %>
 
-<div class="container d-flex justify-content-between mt-5">
+<div class="container d-flex justify-content-between m-5">
   <div class="card_grid">
     <% @outfits.sample(3).each do |outfit| %>
         <%= render "/outfits/outfit_card", outfit: outfit%>
@@ -9,5 +9,5 @@
 </div>
 
 <div class="d-grid gap-2 col-6 mx-auto mb-10">
-  <a class="btn btn-flat" href="/outfits" >Search all pet outfits</a>
+  <a class="btn btn-flat mb-5" href="/outfits" >Search all pet outfits</a>
 </div>

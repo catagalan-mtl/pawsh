@@ -1,98 +1,33 @@
-<div class="container-pet mt-5 mb-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8">
-                <div class="card-outfit">
-                        <div class="text-left paw p-2 px-5">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Paw-print.svg" width="50">
-                        </div>
-                        <div class="invoice p-5">
-                            <h2>Your next Pawsh outfit!</h2>
-                            <h4> for a <%=  @outfit.animal %></h4>
-                            <span class="font-weight-bold d-block mt-4">Hello,</span>
-                            <span>Your ouftit will be ready for pickup on your order date!</span>
-                            <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
-                                <table class="table table-borderless">
-                                <div class="product border-bottom table-responsive">
-                                    <table class="table table-borderless">
-                                    <tbody>
-                                        <tr>
-                                            <td width="20%">
-                                             <% @outfit.photos.each do |photo| %>
-                                             <%= cl_image_tag photo.key, height: 90, width: 90, crop: :fill %>
-                                             <% end %>
-                                        </td>
-                                        <td width="60%">
-                                            <span class="font-weight-bold font-size-10"><%= @outfit.title %></span>
-                                            <div class="product-qty">
-                                                <span class="d-block">Quantity: 1</span>
-                                                <span class= "d-block">Size: <%= @outfit.size  %>   </span>
-                                                <span class= "d-block">Occasion: <%= @outfit.occasion %></span>
-                                                <span class= "d-block">Description: <%= @outfit.description %></span>
-                                            </div>
-                                         </td>
-                                         <td width="20%">
-                                            <div class="text-right">
-                                                <span class="font-weight-bold">$<%= @outfit.price_per_day %>/per day</span>
-                                            </div>
-                                        </td>
-                                        </tr>
-                                    </tbody>
-                                    </table>
-                              </div>
-                                <div class="row d-flex justify-content-end">
-                                    <div class="col-md-5">
-                                        <table class="table table-borderless">
-                                            <tbody class="totals">
-                                                <tr>
-                                                 <tr>
-                                                    <td>
-                                                        <div class="text-left">
-                                                            <span class="text-muted">Shipping</span>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="text-right">
-                                                            <span class="text-success">N/A</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                 <tr class="border-top border-bottom">
-                                                    <td>
-                                                        <div class="text-left">
-                                                            <span class="font-weight-bold">Price Per Day</span>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="text-right">
-                                                            <span class="font-weight-bold">$<%= @outfit.price_per_day %></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div>
-                                <p class="text-align-right"> <%= link_to "Book now! ",  new_outfit_booking_path(@outfit), class: "btn btn-book" %> </p>
-                                </div>
-                                <p>We will send a confirmation email when the outfit owner has accepted your rental.</p>
-
-                                <p class="font-weight-bold mb-0">Thank you for shopping with us!</p>
-                                <span>The Pawsh Team</span>
-
-                        </div>
-
-                        <div class="d-flex justify-content-between footer-orange p-3">
-                        <span>Need Help? Visit the Pawsh <a href="https://www.canadahelps.org/en/explore/charities/category/animals/"> help center</a></span>
-                        </div>
-
-
-
-
-                      </div>
-
-               </div>
-
+<div class="container_show_outfit">
+  <div class="outfit_pictures" data-controller="pictures">
+    <div class="outfit_thumbnails">
+      <% @outfit.photos.each do |photo| %>
+        <div data-action="click->pictures#update">
+          <%= cl_image_tag photo.key, crop: :fill, class: "thumbnail", data: { pictures_target: "thumbnail" } %>
         </div>
-
+      <% end %>
     </div>
+
+    <div class="outfit_view" data-pictures-target="view">
+      <%= cl_image_tag @outfit.photos.first.key, crop: :fill %>
+    </div>
+  </div>
+
+  <div class="outfit_details">
+    <div class="outfit_details_section">
+      <h1><%= @outfit.title %></h1>
+      <p><%= @outfit.description %></p>
+    </div>
+    <div class="outfit_details_section">
+      <p>Size: <%= @outfit.size %></p>
+      <p>Animal: <%= @outfit.animal %></p>
+      <p>Occasion: <%= @outfit.occasion %></p>
+      <p>Price per day: <%= @outfit.price_per_day %> CAD</p>
+    </div>
+    <div class="user">
+      <%= image_tag (@outfit.user.avatar_url.nil? ? "avatar.png" : @outfit.user.avatar_url) , class: "avatar" %>
+      <p><%= @outfit.user.first_name %> is the owner</p>
+    </div>
+    <%= link_to "Book now!", new_outfit_booking_path(@outfit), class: "btn btn-book" %>
+  </div>
+</div>
